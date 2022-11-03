@@ -1,0 +1,20 @@
+[
+
+{
+
+"email":"test@testing.com",
+"password":"password",
+"color": "green"
+
+},
+
+{
+
+"email":"test2@testing.com",
+"password":"password2",
+"color": "green2"
+
+}
+
+
+]
