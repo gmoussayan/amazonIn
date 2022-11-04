@@ -37,16 +37,16 @@ public class SelectSamsungTV extends Base {
 
 	}
 
-	@Test(groups = { "main" }, dataProvider = "testData", dependsOnMethods = { "selectSamsungTV" })
-	public void afterSelectSamsungTVMethod(HashMap<String, String> theMap) {
-
-		System.out.println("I run after selectSamsugTV Method");
-		System.out.println(theMap.get("email"));
-		System.out.println(theMap.get("password"));
-		System.out.println(theMap.get("color"));
-		Assert.assertEquals("green", theMap.get("color"));
-
-	}
+//	@Test(dataProvider = "testData", dependsOnMethods = { "selectSamsungTV" })
+//	public void afterSelectSamsungTVMethod(HashMap<String, String> theMap) {
+//
+//		System.out.println("I run after selectSamsugTV Method");
+//		System.out.println(theMap.get("email"));
+//		System.out.println(theMap.get("password"));
+//		System.out.println(theMap.get("color"));
+//		Assert.assertEquals("green", theMap.get("color"));
+//
+//	}
 
 	@DataProvider
 	public Object[][] testData() throws IOException {
