@@ -27,7 +27,7 @@ import utilities.GoToURL;
 
 public class Base {
 
-	WebDriver driver;
+	public WebDriver driver;
 	public HomePage homePage;
 
 	public WebDriver initializeDriver() throws IOException {
@@ -71,13 +71,15 @@ public class Base {
 		return data;
 	}
 
-	public String getScreenshot(String testCaseName) throws IOException {
+	public String getScreenshot(String testCaseName, WebDriver driver) throws IOException {
 
-		TakesScreenshot ts = (TakesScreenshot) driver;
-		File source = ts.getScreenshotAs(OutputType.FILE);
-		File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
+		TakesScreenshot screenshot = (TakesScreenshot) driver;
+		File source = screenshot.getScreenshotAs(OutputType.FILE);
+		File file = new File(System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png");
 		FileUtils.copyFile(source, file);
-		return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
+		System.out.println(file);
+		System.out.println(System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png");
+		return System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png";
 	}
 
 	@BeforeMethod(alwaysRun = true)

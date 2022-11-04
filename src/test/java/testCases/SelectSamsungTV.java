@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -18,7 +19,6 @@ public class SelectSamsungTV extends Base {
 	@Test(groups = { "main" })
 	public void selectSamsungTV() throws IOException, InterruptedException {
 
-		// HomePage homePage = launchApplication();
 		homePage.clickHamburgerMenu();
 		homePage.clickHamburgerMenuTVItem();
 		TelevisionsPage televisionsPage = homePage.clickTelevisionMenuItem();
@@ -32,7 +32,8 @@ public class SelectSamsungTV extends Base {
 		switchWindow.switchToChild();
 
 		secondTV.waitForTextToBeVisible();
-		secondTV.assertText();
+		String text = secondTV.getText();
+		Assert.assertEquals("maybe", text);
 
 	}
 
@@ -43,6 +44,7 @@ public class SelectSamsungTV extends Base {
 		System.out.println(theMap.get("email"));
 		System.out.println(theMap.get("password"));
 		System.out.println(theMap.get("color"));
+		Assert.assertEquals("green", theMap.get("color"));
 
 	}
 
