@@ -25,7 +25,7 @@ public class Listeners extends Base implements ITestListener {
 		System.out.println("*****Test started: " + result.getName());
 
 		test = extent.createTest(result.getMethod().getMethodName());
-		System.out.println(result.getMethod().getMethodName());
+
 		extenTest.set(test);
 
 	}
@@ -51,7 +51,7 @@ public class Listeners extends Base implements ITestListener {
 		String filePath = null;
 		try {
 			filePath = getScreenshot(result.getMethod().getMethodName(), driver);
-			System.out.println("The filepath is ******************:" + filePath);
+
 		} catch (IOException e) {
 
 			e.printStackTrace();
