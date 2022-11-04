@@ -1,5 +1,6 @@
 package testCases;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.Base;
@@ -14,6 +15,7 @@ public class FailedLogin extends Base {
 		signInPage.enteringEmail("test@test.com");
 		signInPage.enteringPassword("theP@$$w0rd");
 		System.out.println("i am the failed one");
+		Assert.assertFalse(true);
 
 	}
 

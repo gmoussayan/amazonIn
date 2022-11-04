@@ -8,33 +8,32 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.Waits;
 
-public class SecondTV extends Waits{
-	
+public class SecondTV extends Waits {
+
 	WebDriver driver;
-	
+
 	public SecondTV(WebDriver driver) {
-		
-		super(driver);		
+
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	By textLocator = By.cssSelector("h1[class='a-size-base-plus a-text-bold'");
-	
+
 	@FindBy(css = "h1[class='a-size-base-plus a-text-bold'")
 	WebElement text;
-	
+
 	public void waitForTextToBeVisible() {
-		
+
 		explicitLocatorWait(textLocator);
 	}
-	
-	public void assertText() {
-		
+
+	public String getText() {
+
 		System.out.println(text.getText());
-		//return new AfterTest(driver);
-		
+		return text.getText();
+
 	}
-	
 
 }
