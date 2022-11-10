@@ -1,4 +1,4 @@
-#Amazon India small automation test
+## Amazon India small automation test
 
 This is a small automation test using [amazon india](https://amazon.in). The main test **selectSamsungTV** will run the below steps:
 
