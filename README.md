@@ -20,6 +20,7 @@ The following instructions will get you a copy of the test up and running on you
 
 - Download and install [Java](https://www.oracle.com/java/technologies/downloads/)
 - Download and install [Maven](https://maven.apache.org/download.cgi)
+- Set Java and Maven System and User variables
 - Clone the Repo to your local machine
 - From the project root directory, run the following command to run the test with Chrome browser (not headless):
 ```
