@@ -10,7 +10,6 @@ public class HomePage {
 
 	WebDriver driver;
 
-	// By hamburgerMenuTvItem = By.cssSelector("a[data-menu-id='9']");
 	By televisionMenuItem = By.cssSelector("a[href*='television']");
 	By signInLink = By.id("nav-link-accountList");
 
@@ -39,7 +38,7 @@ public class HomePage {
 
 	public void clickHamburgerMenuTVItem() {
 
-		driver.findElement(hamburgerMenuTvItem).click();
+		hamburgerMenuTvItem.click();
 	}
 
 	public TelevisionsPage clickTelevisionMenuItem() {

@@ -12,15 +12,14 @@ import base.Base;
 public class TestingReports extends Base {
 
 	@Test(groups = { "main" })
-	public void selectSamsungTV() throws IOException, InterruptedException {
+	public void selectSamsungTV2() throws IOException, InterruptedException {
 
 		homePage.clickHamburgerMenu();
 
 	}
 
 	@Test
-
-	public void selectSamsungTV2() throws IOException, InterruptedException {
+	public void selectSamsungTV3() throws IOException, InterruptedException {
 
 		homePage.clickHamburgerMenuTVItem();
 
@@ -28,16 +27,6 @@ public class TestingReports extends Base {
 
 	@DataProvider
 	public Object[][] testData() throws IOException {
-
-//		HashMap<String, String> map = new HashMap<String, String>();
-//		map.put("email", "test@test.com");
-//		map.put("password", "thePassword");
-//		map.put("color", "green");
-//
-//		HashMap<String, String> map2 = new HashMap<String, String>();
-//		map.put("email", "test2@test.com");
-//		map.put("password", "thePassword2");
-//		map.put("color", "green2");
 
 		List<HashMap<String, String>> data = getJsonDataToMap(
 				System.getProperty("user.dir") + "\\src\\main\\java\\utilities\\testData.json");

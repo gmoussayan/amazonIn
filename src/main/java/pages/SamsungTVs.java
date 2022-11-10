@@ -11,20 +11,20 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.SwitchWindow;
 import utilities.Waits;
 
-public class SamsungTVs extends Waits{
-	
+public class SamsungTVs extends Waits {
+
 	WebDriver driver;
-	
+
 	public SamsungTVs(WebDriver driver) {
-		
+
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+
 	By dropdown = By.id("a-autoid-0-announce");
 	By highToLowSort = By.id("s-result-sort-select_2");
-	
+
 	public void dropdownIsVisible() {
 
 		explicitLocatorWait(dropdown);
@@ -42,7 +42,7 @@ public class SamsungTVs extends Waits{
 		driver.findElement(highToLowSort).click();
 
 	}
-	
+
 	@FindBy(css = "a[class='a-link-normal s-no-outline']")
 	List<WebElement> tvResults;
 
@@ -53,7 +53,7 @@ public class SamsungTVs extends Waits{
 			if (i == 1) {
 
 				tvResults.get(i).click();
-				System.out.println("clicked Twoooo!");
+				System.out.println("Second TV from list is now clicked");
 				break;
 
 			}
@@ -63,10 +63,10 @@ public class SamsungTVs extends Waits{
 		return new SecondTV(driver);
 
 	}
-	
+
 	public SwitchWindow switchWindow() {
-	
-	return new SwitchWindow(driver);
-}
+
+		return new SwitchWindow(driver);
+	}
 
 }

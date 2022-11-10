@@ -9,12 +9,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.Waits;
 
-public class TelevisionsPage extends Waits{
+public class TelevisionsPage extends Waits {
 
 	WebDriver driver;
 
 	public TelevisionsPage(WebDriver driver) {
-		
+
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -25,15 +25,14 @@ public class TelevisionsPage extends Waits{
 	List<WebElement> leftNavLabels;
 
 	public SamsungTVs loopNavLabelsForSamsung() throws InterruptedException {
-		
-		
+
 		Thread.sleep(3000);
 		for (int i = 0; i < leftNavLabels.size(); i++) {
 
 			if (leftNavLabels.get(i).getText().equalsIgnoreCase("Samsung")) {
 
 				leftNavLabels.get(i).click();
-				System.out.println("clicked");
+				System.out.println("Samsung checkbox is clicked");
 				break;
 
 			}
