@@ -1,0 +1,11 @@
+#Folders
+
+.settings
+reports
+target
+test-output
+
+#Files
+.classpath
+.project
+

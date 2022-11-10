@@ -10,7 +10,7 @@ public class HomePage {
 
 	WebDriver driver;
 
-	By hamburgerMenuTvItem = By.cssSelector("a[data-menu-id='9']");
+	// By hamburgerMenuTvItem = By.cssSelector("a[data-menu-id='9']");
 	By televisionMenuItem = By.cssSelector("a[href*='television']");
 	By signInLink = By.id("nav-link-accountList");
 
@@ -22,9 +22,12 @@ public class HomePage {
 
 	@FindBy(id = "nav-hamburger-menu")
 	WebElement hamburgerMenuIcon;
-	
+
+	@FindBy(css = "a[data-menu-id='9']")
+	WebElement hamburgerMenuTvItem;
+
 	public SignInPage clickSignInLink() {
-		
+
 		driver.findElement(signInLink).click();
 		return new SignInPage(driver);
 	}
