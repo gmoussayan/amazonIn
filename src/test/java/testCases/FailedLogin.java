@@ -31,6 +31,4 @@ public class FailedLogin extends Base {
 		System.out.println("Method 2");
 	}
 
-	// @Test(dependsonMethods= {"methodName"})
-
 }

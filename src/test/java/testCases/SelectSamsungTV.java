@@ -33,33 +33,12 @@ public class SelectSamsungTV extends Base {
 
 		secondTV.waitForTextToBeVisible();
 		String text = secondTV.getText();
-		Assert.assertEquals("maybe", text);
+		Assert.assertEquals("About this item", text);
 
 	}
 
-//	@Test(dataProvider = "testData", dependsOnMethods = { "selectSamsungTV" })
-//	public void afterSelectSamsungTVMethod(HashMap<String, String> theMap) {
-//
-//		System.out.println("I run after selectSamsugTV Method");
-//		System.out.println(theMap.get("email"));
-//		System.out.println(theMap.get("password"));
-//		System.out.println(theMap.get("color"));
-//		Assert.assertEquals("green", theMap.get("color"));
-//
-//	}
-
 	@DataProvider
 	public Object[][] testData() throws IOException {
-
-//		HashMap<String, String> map = new HashMap<String, String>();
-//		map.put("email", "test@test.com");
-//		map.put("password", "thePassword");
-//		map.put("color", "green");
-//
-//		HashMap<String, String> map2 = new HashMap<String, String>();
-//		map.put("email", "test2@test.com");
-//		map.put("password", "thePassword2");
-//		map.put("color", "green2");
 
 		List<HashMap<String, String>> data = getJsonDataToMap(
 				System.getProperty("user.dir") + "\\src\\main\\java\\utilities\\testData.json");

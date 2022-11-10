@@ -22,7 +22,7 @@ public class Listeners extends Base implements ITestListener {
 	@Override
 	public void onTestStart(ITestResult result) {
 
-		System.out.println("*****Test started: " + result.getName());
+		System.out.println("Test Case: " + result.getName() + " is now running");
 
 		test = extent.createTest(result.getMethod().getMethodName());
 
