@@ -1,8 +1,5 @@
 package utilities;
 
-import java.util.Iterator;
-import java.util.Set;
-
 import org.openqa.selenium.WebDriver;
 
 public class SwitchWindow {
@@ -16,11 +13,15 @@ public class SwitchWindow {
 
 	public void switchToChild() {
 
-		Set<String> windows = driver.getWindowHandles();
-		Iterator<String> handle = windows.iterator();
-		String parentID = handle.next();
-		String childID = handle.next();
-		driver.switchTo().window(childID);
+		System.out.println("Switching to child window");
+		String originalWindow = driver.getWindowHandle();
+
+		for (String windowHandle : driver.getWindowHandles()) {
+			if (!originalWindow.contentEquals(windowHandle)) {
+				driver.switchTo().window(windowHandle);
+				break;
+			}
+		}
 
 	}
 

@@ -11,6 +11,7 @@ import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -46,9 +47,9 @@ public class Base {
 			ChromeOptions options = new ChromeOptions();
 
 			WebDriverManager.chromedriver().setup();
-			options.addArguments("headless");
-
-			driver = new ChromeDriver(options);
+			// options.addArguments("headless");
+			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			driver = new ChromeDriver();
 
 		}
 
@@ -81,8 +82,6 @@ public class Base {
 		File source = screenshot.getScreenshotAs(OutputType.FILE);
 		File file = new File(System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png");
 		FileUtils.copyFile(source, file);
-		System.out.println(file);
-		System.out.println(System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png");
 		return System.getProperty("user.dir") + "\\reports\\" + testCaseName + ".png";
 	}
 
