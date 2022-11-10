@@ -40,20 +40,29 @@ public class Base {
 
 		prop.load(fileInput);
 
-		String browser = prop.getProperty("browser");
+		String browser = System.getProperty("browser") != null ? System.getProperty("browser")
+				: prop.getProperty("browser");
 
-		if (browser.equalsIgnoreCase("chrome")) {
+		// String browser = prop.getProperty("browser");
+
+		if (browser.contains("chrome")) {
 
 			ChromeOptions options = new ChromeOptions();
 
 			WebDriverManager.chromedriver().setup();
-			// options.addArguments("headless");
+
+			if (browser.contains("headless")) {
+
+				options.addArguments("headless");
+
+			}
+
 			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(options);
 
 		}
 
-		else {
+		else if (browser.contains("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}

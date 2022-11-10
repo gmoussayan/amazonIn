@@ -12,11 +12,12 @@ import base.Base;
 import pages.SamsungTVs;
 import pages.SecondTV;
 import pages.TelevisionsPage;
+import utilities.RerunFailedTest;
 import utilities.SwitchWindow;
 
 public class SelectSamsungTV extends Base {
 
-	@Test(groups = { "main" })
+	@Test(groups = { "main" }, retryAnalyzer = RerunFailedTest.class)
 	public void selectSamsungTV() throws IOException, InterruptedException {
 
 		homePage.clickHamburgerMenu();
