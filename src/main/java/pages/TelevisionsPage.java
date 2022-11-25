@@ -26,18 +26,19 @@ public class TelevisionsPage extends Waits {
 
 	public SamsungTVs loopNavLabelsForSamsung() throws InterruptedException {
 
-		Thread.sleep(3000);
+		explicitAllWebElementWait(leftNavLabels);
 		for (int i = 0; i < leftNavLabels.size(); i++) {
 
 			if (leftNavLabels.get(i).getText().equalsIgnoreCase("Samsung")) {
 
 				leftNavLabels.get(i).click();
-				System.out.println("Samsung checkbox is clicked");
+				System.out.println("Samsung checkbox is selected");
 				break;
 
 			}
 
 		}
+
 		return new SamsungTVs(driver);
 	}
 

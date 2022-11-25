@@ -28,10 +28,8 @@ public class SelectSamsungTV extends Base {
 		samsungTVs.clickDropdown();
 		samsungTVs.clickHighToLow();
 		SecondTV secondTV = samsungTVs.secondTVFromList();
-
 		SwitchWindow switchWindow = samsungTVs.switchWindow();
 		switchWindow.switchToChild();
-
 		secondTV.waitForTextToBeVisible();
 		String text = secondTV.getText();
 		Assert.assertEquals("About this item", text);
@@ -44,6 +42,7 @@ public class SelectSamsungTV extends Base {
 		List<HashMap<String, String>> data = getJsonDataToMap(
 				System.getProperty("user.dir") + "\\src\\main\\java\\utilities\\testData.json");
 		return new Object[][] { { data.get(0) }, { data.get(1) } };
+
 	}
 
 }
