@@ -16,14 +16,13 @@ public class GoToURL {
 	}
 
 	public void goTo() throws IOException {
-		
-		Properties prop = new Properties();
-		FileInputStream fileInput = new FileInputStream(System.getProperty("user.dir")+ "\\src\\main\\java\\utilities\\config.properties");
-		
-		prop.load(fileInput);
-		
-		String url = prop.getProperty("url");
 
+		FileInputStream fileInput = new FileInputStream(
+				System.getProperty("user.dir") + "\\src\\main\\java\\utilities\\config.properties");
+
+		Properties props = new Properties();
+		props.load(fileInput);
+		String url = props.getProperty("url");
 		driver.get(url);
 	}
 

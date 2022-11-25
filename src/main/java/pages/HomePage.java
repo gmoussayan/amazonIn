@@ -1,23 +1,28 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+import utilities.Waits;
+
+public class HomePage extends Waits {
 
 	WebDriver driver;
 
-	By televisionMenuItem = By.cssSelector("a[href*='television']");
-	By signInLink = By.id("nav-link-accountList");
-
 	public HomePage(WebDriver driver) {
 
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+
+	@FindBy(css = "a[href*='television']")
+	WebElement televisionMenuItem;
+
+	@FindBy(id = "nav-link-accountList")
+	WebElement signInLink;
 
 	@FindBy(id = "nav-hamburger-menu")
 	WebElement hamburgerMenuIcon;
@@ -27,23 +32,25 @@ public class HomePage {
 
 	public SignInPage clickSignInLink() {
 
-		driver.findElement(signInLink).click();
+		signInLink.click();
 		return new SignInPage(driver);
 	}
 
-	public void clickHamburgerMenu() {
+	public void clickHamburgerMenu() throws InterruptedException {
 
+		explicitWebElementWait(hamburgerMenuIcon);
 		hamburgerMenuIcon.click();
 	}
 
 	public void clickHamburgerMenuTVItem() {
 
+		explicitWebElementWait(hamburgerMenuTvItem);
 		hamburgerMenuTvItem.click();
 	}
 
 	public TelevisionsPage clickTelevisionMenuItem() {
 
-		driver.findElement(televisionMenuItem).click();
+		televisionMenuItem.click();
 		return new TelevisionsPage(driver);
 	}
 

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import utilities.Waits;
 
-public class SignInPage extends Waits{
+public class SignInPage extends Waits {
 
 	WebDriver driver;
 
@@ -20,7 +20,7 @@ public class SignInPage extends Waits{
 
 	@FindBy(id = "ap_email")
 	WebElement email;
-	
+
 	@FindBy(css = "span[id='continue']")
 	WebElement continueButton;
 
@@ -31,21 +31,19 @@ public class SignInPage extends Waits{
 	WebElement signInButton;
 
 	public void enteringEmail(String username) {
-		
+
 		explicitWebElementWait(email);
 		email.sendKeys(username);
 		continueButton.click();
-		
+
 	}
-	
+
 	public void enteringPassword(String passcode) {
-		
+
 		explicitWebElementWait(password);
 		password.sendKeys(passcode);
 		signInButton.click();
 
 	}
-
-
 
 }
