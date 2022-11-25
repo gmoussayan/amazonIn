@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,14 +18,15 @@ public class SecondTV extends Waits {
 		PageFactory.initElements(driver, this);
 	}
 
-	By textLocator = By.cssSelector("h1[class='a-size-base-plus a-text-bold'");
+	@FindBy(css = "h1[class='a-size-base-plus a-text-bold'")
+	WebElement textLocator;
 
 	@FindBy(css = "h1[class='a-size-base-plus a-text-bold'")
 	WebElement text;
 
 	public void waitForTextToBeVisible() {
 
-		explicitLocatorWait(textLocator);
+		explicitWebElementWait(textLocator);
 	}
 
 	public String getText() {

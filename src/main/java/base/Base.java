@@ -17,6 +17,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -34,37 +35,46 @@ public class Base {
 
 	public WebDriver initializeDriver() throws IOException {
 
-		Properties prop = new Properties();
+		// FileInputStream obtains input bytes from a file in a file system
 		FileInputStream fileInput = new FileInputStream(
 				System.getProperty("user.dir") + "\\src\\main\\java\\utilities\\config.properties");
 
-		prop.load(fileInput);
+		Properties props = new Properties();
+		props.load(fileInput);
 
+		// Java ternary operator
 		String browser = System.getProperty("browser") != null ? System.getProperty("browser")
-				: prop.getProperty("browser");
-
-		// String browser = prop.getProperty("browser");
+				: props.getProperty("browser");
 
 		if (browser.contains("chrome")) {
 
-			ChromeOptions options = new ChromeOptions();
-
+			ChromeOptions chromeOptions = new ChromeOptions();
 			WebDriverManager.chromedriver().setup();
 
 			if (browser.contains("headless")) {
 
-				options.addArguments("headless");
+				chromeOptions.addArguments("headless");
 
 			}
 
-			options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-			driver = new ChromeDriver(options);
+			chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			driver = new ChromeDriver(chromeOptions);
 
 		}
 
 		else if (browser.contains("firefox")) {
+
+			FirefoxOptions firefoxOptions = new FirefoxOptions();
 			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+
+			if (browser.contains("headless")) {
+
+				firefoxOptions.addArguments("headless");
+
+			}
+
+			firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+			driver = new FirefoxDriver(firefoxOptions);
 		}
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(12));
@@ -75,8 +85,10 @@ public class Base {
 
 	public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {
 
+		// Reads JSON file contents into String type.
 		String jsonContent = FileUtils.readFileToString(new File(filePath), StandardCharsets.UTF_8);
 
+		// It parses JSON with Jackson Databind and set it in a list of HashMap
 		ObjectMapper mapper = new ObjectMapper();
 		List<HashMap<String, String>> data = mapper.readValue(jsonContent,
 				new TypeReference<List<HashMap<String, String>>>() {

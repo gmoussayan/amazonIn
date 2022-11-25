@@ -2,7 +2,6 @@ package pages;
 
 import java.util.List;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,32 +21,36 @@ public class SamsungTVs extends Waits {
 		PageFactory.initElements(driver, this);
 	}
 
-	By dropdown = By.id("a-autoid-0-announce");
-	By highToLowSort = By.id("s-result-sort-select_2");
+	@FindBy(id = "a-autoid-0-announce")
+	WebElement dropdown;
+
+	@FindBy(id = "s-result-sort-select_2")
+	WebElement highToLowSort;
+
+	@FindBy(css = "a[class='a-link-normal s-no-outline']")
+	List<WebElement> tvResults;
 
 	public void dropdownIsVisible() {
 
-		explicitLocatorWait(dropdown);
+		explicitWebElementWait(dropdown);
 
 	}
 
 	public void clickDropdown() {
 
-		driver.findElement(dropdown).click();
+		dropdown.click();
 
 	}
 
 	public void clickHighToLow() {
 
-		driver.findElement(highToLowSort).click();
+		highToLowSort.click();
 
 	}
 
-	@FindBy(css = "a[class='a-link-normal s-no-outline']")
-	List<WebElement> tvResults;
-
 	public SecondTV secondTVFromList() {
 
+		explicitAllWebElementWait(tvResults);
 		for (int i = 0; i < tvResults.size(); i++) {
 
 			if (i == 1) {

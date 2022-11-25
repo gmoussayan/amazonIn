@@ -1,6 +1,7 @@
 package utilities;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -19,16 +20,23 @@ public class Waits {
 	}
 
 	public void explicitLocatorWait(By findBy) {
-		
-		WebDriverWait driverWait = new WebDriverWait(driver,Duration.ofSeconds(20));
+
+		WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		driverWait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
 
 	}
-	
+
 	public void explicitWebElementWait(WebElement webElement) {
-		
-		WebDriverWait driverWait = new WebDriverWait(driver,Duration.ofSeconds(20));
+
+		WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		driverWait.until(ExpectedConditions.visibilityOf(webElement));
+
+	}
+
+	public void explicitAllWebElementWait(List<WebElement> listWebElements) {
+
+		WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		driverWait.until(ExpectedConditions.visibilityOfAllElements(listWebElements));
 
 	}
 
