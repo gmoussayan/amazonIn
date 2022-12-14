@@ -2,7 +2,7 @@
 
 This is a small automation Test Run using [amazon india](https://amazon.in). The test is built using **Selenium Java**, **TestNG** and **Maven**. It will run the follwing Test Cases.
 
-+ The **SelectSamsungTV**, which will repeat (1 more time) using IRetryAnalyzer, in case the test fails for unexpected conditions.
++ The **selectSamsungTV**, which will repeat (1 more time) using IRetryAnalyzer, in case the test fails for unexpected conditions.
 
   - Open https://www.amazon.in
   - Click the top left **hamburger menu**. 
