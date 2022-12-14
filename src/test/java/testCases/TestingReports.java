@@ -7,30 +7,36 @@ import java.util.List;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import base.Base;
 import pages.SignInPage;
 
 public class TestingReports extends Base {
 
-	@Test
-	public void selectSamsungTV2() throws IOException, InterruptedException {
+	@Test(groups = { "main" })
+	public void iFailTestCase() throws IOException, InterruptedException {
+
+		SoftAssert softAssert = new SoftAssert();
+
+		SignInPage signInPage = homePage.clickSignInLink();
+		signInPage.enteringEmail("test@test.com");
+		signInPage.enteringPassword("theP@$$w0rd");
+		System.out
+				.println("I'm the failed test! You can check the screenshot in the HTML report under reports folder.");
+		Assert.assertFalse(true);
+		softAssert.assertFalse(true);
+		softAssert.assertAll();
+
+	}
+
+	@Test(groups = { "main" })
+	public void iSucceedTestCase() throws IOException, InterruptedException {
 
 		SignInPage signInPage = homePage.clickSignInLink();
 		signInPage.enteringEmail("test@test.com");
 		signInPage.enteringPassword("theP@$$w0rd");
 		System.out.println("A bientot!");
-
-	}
-
-	@Test
-	public void selectSamsungTV3() throws IOException, InterruptedException {
-
-		SignInPage signInPage = homePage.clickSignInLink();
-		signInPage.enteringEmail("test@test.com");
-		signInPage.enteringPassword("theP@$$w0rd");
-		System.out.println("I'm failing!");
-		Assert.assertFalse(true);
 
 	}
 

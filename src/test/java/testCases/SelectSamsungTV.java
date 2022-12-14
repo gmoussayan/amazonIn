@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import base.Base;
 import pages.SamsungTVs;
@@ -32,8 +32,9 @@ public class SelectSamsungTV extends Base {
 		switchWindow.switchToChild();
 		secondTV.waitForTextToBeVisible();
 		String text = secondTV.getText();
-		Assert.assertEquals("About this item", text);
-
+		SoftAssert softAssert = new SoftAssert();
+		softAssert.assertEquals("About this item", text);
+		softAssert.assertAll();
 	}
 
 	@DataProvider
