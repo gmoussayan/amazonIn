@@ -19,19 +19,16 @@ public class SecondTV extends Waits {
 	}
 
 	@FindBy(css = "h1[class='a-size-base-plus a-text-bold'")
-	WebElement textLocator;
-
-	@FindBy(css = "h1[class='a-size-base-plus a-text-bold'")
 	WebElement text;
 
 	public void waitForTextToBeVisible() {
 
-		explicitWebElementWait(textLocator);
+		explicitWebElementWait(text);
 	}
 
 	public String getText() {
 
-		System.out.println(text.getText());
+		System.out.println(text.getText() + " <<<--- is logged!]");
 		return text.getText();
 
 	}

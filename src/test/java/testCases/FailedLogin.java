@@ -8,7 +8,7 @@ import pages.SignInPage;
 
 public class FailedLogin extends Base {
 
-	@Test
+	@Test()
 	public void failedLogin() {
 
 		SignInPage signInPage = homePage.clickSignInLink();

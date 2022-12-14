@@ -4,24 +4,33 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import base.Base;
+import pages.SignInPage;
 
 public class TestingReports extends Base {
 
-	@Test(groups = { "main" })
+	@Test
 	public void selectSamsungTV2() throws IOException, InterruptedException {
 
-		homePage.clickHamburgerMenu();
+		SignInPage signInPage = homePage.clickSignInLink();
+		signInPage.enteringEmail("test@test.com");
+		signInPage.enteringPassword("theP@$$w0rd");
+		System.out.println("A bientot!");
 
 	}
 
 	@Test
 	public void selectSamsungTV3() throws IOException, InterruptedException {
 
-		homePage.clickHamburgerMenuTVItem();
+		SignInPage signInPage = homePage.clickSignInLink();
+		signInPage.enteringEmail("test@test.com");
+		signInPage.enteringPassword("theP@$$w0rd");
+		System.out.println("I'm failing!");
+		Assert.assertFalse(true);
 
 	}
 
