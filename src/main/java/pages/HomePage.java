@@ -40,18 +40,22 @@ public class HomePage extends Waits {
 
 		explicitWebElementWait(hamburgerMenuIcon);
 		hamburgerMenuIcon.click();
+		System.out.println("Top left hamburger menu is clicked.");
 	}
 
 	public void clickHamburgerMenuTVItem() {
 
 		explicitWebElementWait(hamburgerMenuTvItem);
 		hamburgerMenuTvItem.click();
+		System.out.println("TV, Appliances and Electronics under Shop by Department section is clicked.");
 	}
 
 	public TelevisionsPage clickTelevisionMenuItem() {
 
 		televisionMenuItem.click();
+		System.out.println("Televisions under Tv, Audio & Cameras sub section is clicked.");
 		return new TelevisionsPage(driver);
+
 	}
 
 }

@@ -13,6 +13,7 @@
 		<classes>
 			<class name="testCases.SelectSamsungTV"/>
 			<class name="testCases.TestingReports"/>
+			<class name="testCases.FailedLogin"/>
 		</classes>
 	</test>
 	<!-- Test -->

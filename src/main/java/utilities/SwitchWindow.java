@@ -13,7 +13,7 @@ public class SwitchWindow {
 
 	public void switchToChild() {
 
-		System.out.println("Switching to child window");
+		System.out.println("Switching to child tab");
 		String originalWindow = driver.getWindowHandle();
 
 		for (String windowHandle : driver.getWindowHandles()) {
