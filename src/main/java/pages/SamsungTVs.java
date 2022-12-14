@@ -25,7 +25,7 @@ public class SamsungTVs extends Waits {
 	WebElement dropdown;
 
 	@FindBy(id = "s-result-sort-select_2")
-	WebElement highToLowSort;
+	WebElement highToLowOption;
 
 	@FindBy(css = "a[class='a-link-normal s-no-outline']")
 	List<WebElement> tvResults;
@@ -44,7 +44,8 @@ public class SamsungTVs extends Waits {
 
 	public void clickHighToLow() {
 
-		highToLowSort.click();
+		highToLowOption.click();
+		System.out.println("High to Low price sorting is applied.");
 
 	}
 
@@ -56,7 +57,7 @@ public class SamsungTVs extends Waits {
 			if (i == 1) {
 
 				tvResults.get(i).click();
-				System.out.println("Second TV from list is now clicked");
+				System.out.println("Second highest priced Samsung TV is selected");
 				break;
 
 			}

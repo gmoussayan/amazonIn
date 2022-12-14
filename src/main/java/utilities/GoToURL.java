@@ -24,6 +24,7 @@ public class GoToURL {
 		props.load(fileInput);
 		String url = props.getProperty("url");
 		driver.get(url);
+		System.out.println(url + " is now accessed");
 	}
 
 }

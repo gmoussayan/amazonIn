@@ -22,17 +22,17 @@ public class TelevisionsPage extends Waits {
 	}
 
 	@FindBy(css = "a[class='a-link-normal']")
-	List<WebElement> leftNavLabels;
+	List<WebElement> navigationLabels;
 
 	public SamsungTVs loopNavLabelsForSamsung() throws InterruptedException {
 
-		explicitAllWebElementWait(leftNavLabels);
-		for (int i = 0; i < leftNavLabels.size(); i++) {
+		explicitAllWebElementWait(navigationLabels);
+		for (int i = 0; i < navigationLabels.size(); i++) {
 
-			if (leftNavLabels.get(i).getText().equalsIgnoreCase("Samsung")) {
+			if (navigationLabels.get(i).getText().equalsIgnoreCase("Samsung")) {
 
-				leftNavLabels.get(i).click();
-				System.out.println("Samsung checkbox is selected");
+				navigationLabels.get(i).click();
+				System.out.println("Samsung brand checkbox is selected.");
 				break;
 
 			}
