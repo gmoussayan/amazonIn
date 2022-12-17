@@ -33,7 +33,14 @@ public class Waits {
 
 	}
 
-	public void explicitAllWebElementWait(List<WebElement> listWebElements) {
+	public void explicitWebElementClickable(WebElement webElement) {
+
+		WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		driverWait.until(ExpectedConditions.elementToBeClickable(webElement));
+
+	}
+
+	public void explicitAllWebElementWait(List<WebElement> listWebElements) throws InterruptedException {
 
 		WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		driverWait.until(ExpectedConditions.visibilityOfAllElements(listWebElements));

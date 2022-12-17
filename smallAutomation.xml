@@ -15,12 +15,5 @@
 			<class name="testCases.TestingReports"/>
 		</classes>
 	</test>
-	<!-- Test -->
-	<test thread-count="3" name="Failed Login">
-		<classes>
-			<class name="testCases.FailedLogin"/>
-		</classes>
-	</test>
-	<!-- Test -->
 </suite>
 <!-- Suite -->

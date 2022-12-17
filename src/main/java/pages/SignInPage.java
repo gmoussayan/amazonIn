@@ -30,6 +30,9 @@ public class SignInPage extends Waits {
 	@FindBy(id = "signInSubmit")
 	WebElement signInButton;
 
+	@FindBy(css = "ul[class='a-unordered-list a-nostyle a-vertical a-spacing-none']")
+	WebElement errorMessage;
+
 	public void enteringEmail(String username) {
 
 		explicitWebElementWait(email);
@@ -43,6 +46,13 @@ public class SignInPage extends Waits {
 		explicitWebElementWait(password);
 		password.sendKeys(passcode);
 		signInButton.click();
+
+	}
+
+	public String grabingErrorMessage() {
+
+		explicitWebElementWait(errorMessage);
+		return errorMessage.getText();
 
 	}
 

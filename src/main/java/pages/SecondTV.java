@@ -23,7 +23,7 @@ public class SecondTV extends Waits {
 
 	public void waitForTextToBeVisible() {
 
-		explicitWebElementWait(text);
+		explicitWebElementClickable(text);
 	}
 
 	public String getText() {
