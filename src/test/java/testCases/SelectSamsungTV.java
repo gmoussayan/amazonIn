@@ -1,10 +1,7 @@
 package testCases;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -17,7 +14,7 @@ import utilities.SwitchWindow;
 
 public class SelectSamsungTV extends Base {
 
-	@Test(groups = { "main" }, retryAnalyzer = RerunFailedTest.class)
+	@Test(groups = "main", retryAnalyzer = RerunFailedTest.class)
 	public void selectSamsungTV() throws IOException, InterruptedException {
 
 		homePage.clickHamburgerMenu();
@@ -35,15 +32,6 @@ public class SelectSamsungTV extends Base {
 		SoftAssert softAssert = new SoftAssert();
 		softAssert.assertEquals("About this item", text);
 		softAssert.assertAll();
-	}
-
-	@DataProvider
-	public Object[][] testData() throws IOException {
-
-		List<HashMap<String, String>> data = getJsonDataToMap(
-				System.getProperty("user.dir") + "\\src\\main\\java\\utilities\\testData.json");
-		return new Object[][] { { data.get(0) }, { data.get(1) } };
-
 	}
 
 }

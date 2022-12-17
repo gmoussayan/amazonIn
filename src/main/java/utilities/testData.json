@@ -4,7 +4,7 @@
 
 "email":"test@testing.com",
 "password":"password",
-"color": "green"
+"message": "I'm the failed test! You can check the screenshot in the HTML report under reports folder."
 
 },
 
@@ -12,7 +12,7 @@
 
 "email":"test2@testing.com",
 "password":"password2",
-"color": "green2"
+"message": "A bientot!"
 
 }
 

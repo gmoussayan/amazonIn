@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.Scroll;
 import utilities.SwitchWindow;
 import utilities.Waits;
 
@@ -32,7 +33,7 @@ public class SamsungTVs extends Waits {
 
 	public void dropdownIsVisible() {
 
-		explicitWebElementWait(dropdown);
+		explicitWebElementClickable(dropdown);
 
 	}
 
@@ -49,12 +50,15 @@ public class SamsungTVs extends Waits {
 
 	}
 
-	public SecondTV secondTVFromList() {
+	public SecondTV secondTVFromList() throws InterruptedException {
 
 		explicitAllWebElementWait(tvResults);
 		for (int i = 0; i < tvResults.size(); i++) {
 
 			if (i == 1) {
+
+				Scroll scroll = new Scroll(driver);
+				scroll.scrollIntoView(tvResults.get(i));
 
 				tvResults.get(i).click();
 				System.out.println("Second highest priced Samsung TV is selected");
