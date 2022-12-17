@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -14,29 +13,35 @@ import pages.SignInPage;
 
 public class TestingReports extends Base {
 
-	@Test(groups = { "main" })
-	public void iFailTestCase() throws IOException, InterruptedException {
+	@Test(dataProvider = "testData", groups = "main")
+	public void iFailTestCase(HashMap<String, String> data) throws IOException, InterruptedException {
 
 		SoftAssert softAssert = new SoftAssert();
 
 		SignInPage signInPage = homePage.clickSignInLink();
-		signInPage.enteringEmail("test@test.com");
-		signInPage.enteringPassword("theP@$$w0rd");
-		System.out
-				.println("I'm the failed test! You can check the screenshot in the HTML report under reports folder.");
-		Assert.assertFalse(true);
-		softAssert.assertFalse(true);
+		signInPage.enteringEmail(data.get("email"));
+		signInPage.enteringPassword(data.get("password"));
+		String text = signInPage.grabingErrorMessage();
+		System.out.println(data.get("message"));
+		softAssert.assertEquals("Your password is IN correct", text);
 		softAssert.assertAll();
 
 	}
 
-	@Test(groups = { "main" })
-	public void iSucceedTestCase() throws IOException, InterruptedException {
+	@Test(dataProvider = "testData", groups = "main")
+	public void iSucceedTestCase(HashMap<String, String> data) throws IOException, InterruptedException {
+
+		SoftAssert softAssert = new SoftAssert();
 
 		SignInPage signInPage = homePage.clickSignInLink();
-		signInPage.enteringEmail("test@test.com");
-		signInPage.enteringPassword("theP@$$w0rd");
+		signInPage.enteringEmail(data.get("email"));
+		signInPage.enteringPassword(data.get("password"));
+		String text2 = signInPage.grabingErrorMessage();
+		softAssert.assertEquals(
+				"To better protect your account, please re-enter your password and then enter the characters as they are shown in the image below.",
+				text2);
 		System.out.println("A bientot!");
+		softAssert.assertAll();
 
 	}
 
@@ -45,7 +50,7 @@ public class TestingReports extends Base {
 
 		List<HashMap<String, String>> data = getJsonDataToMap(
 				System.getProperty("user.dir") + "\\src\\main\\java\\utilities\\testData.json");
-		return new Object[][] { { data.get(0) }, { data.get(1) } };
+		return new Object[][] { { data.get(0) } };
 	}
 
 }

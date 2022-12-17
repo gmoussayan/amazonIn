@@ -10,8 +10,10 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -65,7 +67,7 @@ public class Base {
 		else if (browser.contains("firefox")) {
 
 			FirefoxOptions firefoxOptions = new FirefoxOptions();
-			WebDriverManager.firefoxdriver().setup();
+			WebDriverManager.firefoxdriver().clearDriverCache().setup();
 
 			if (browser.contains("headless")) {
 
@@ -79,7 +81,8 @@ public class Base {
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(12));
 		driver.manage().deleteAllCookies();
-		driver.manage().window().maximize();
+		driver.manage().window().setSize(new Dimension(1440, 900));
+		driver.manage().window().setPosition(new Point(0, 0));
 		return driver;
 	}
 

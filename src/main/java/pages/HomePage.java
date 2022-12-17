@@ -38,14 +38,14 @@ public class HomePage extends Waits {
 
 	public void clickHamburgerMenu() throws InterruptedException {
 
-		explicitWebElementWait(hamburgerMenuIcon);
+		explicitWebElementClickable(hamburgerMenuIcon);
 		hamburgerMenuIcon.click();
 		System.out.println("Top left hamburger menu is clicked.");
 	}
 
 	public void clickHamburgerMenuTVItem() {
 
-		explicitWebElementWait(hamburgerMenuTvItem);
+		explicitWebElementClickable(hamburgerMenuTvItem);
 		hamburgerMenuTvItem.click();
 		System.out.println("TV, Appliances and Electronics under Shop by Department section is clicked.");
 	}

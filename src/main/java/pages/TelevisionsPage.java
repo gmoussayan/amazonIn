@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.Scroll;
 import utilities.Waits;
 
 public class TelevisionsPage extends Waits {
@@ -21,12 +22,19 @@ public class TelevisionsPage extends Waits {
 
 	}
 
+	@FindBy(css = "a[href*='Samsung&dc&qid']")
+	WebElement samsungOption;
+
 	@FindBy(css = "a[class='a-link-normal']")
 	List<WebElement> navigationLabels;
 
 	public SamsungTVs loopNavLabelsForSamsung() throws InterruptedException {
 
+		Scroll scroll = new Scroll(driver);
+		scroll.scrollIntoView(samsungOption);
+
 		explicitAllWebElementWait(navigationLabels);
+
 		for (int i = 0; i < navigationLabels.size(); i++) {
 
 			if (navigationLabels.get(i).getText().equalsIgnoreCase("Samsung")) {
