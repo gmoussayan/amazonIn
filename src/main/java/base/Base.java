@@ -51,7 +51,7 @@ public class Base {
 		if (browser.contains("chrome")) {
 
 			ChromeOptions chromeOptions = new ChromeOptions();
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().clearDriverCache().setup();
 
 			if (browser.contains("headless")) {
 
@@ -71,7 +71,7 @@ public class Base {
 
 			if (browser.contains("headless")) {
 
-				firefoxOptions.addArguments("headless");
+				firefoxOptions.addArguments("--headless");
 
 			}
 
