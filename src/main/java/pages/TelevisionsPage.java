@@ -22,7 +22,7 @@ public class TelevisionsPage extends Waits {
 
 	}
 
-	@FindBy(css = "a[href*='Samsung&dc&qid']")
+	@FindBy(xpath = "//div[@id='s-refinements'] //span[contains(text(), 'Samsung')]")
 	WebElement samsungOption;
 
 	@FindBy(css = "a[class='a-link-normal']")

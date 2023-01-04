@@ -30,7 +30,7 @@ public class SignInPage extends Waits {
 	@FindBy(id = "signInSubmit")
 	WebElement signInButton;
 
-	@FindBy(css = "ul[class='a-unordered-list a-nostyle a-vertical a-spacing-none']")
+	@FindBy(css = "div[id='auth-error-message-box'] span[class='a-list-item']")
 	WebElement errorMessage;
 
 	public void enteringEmail(String username) {
