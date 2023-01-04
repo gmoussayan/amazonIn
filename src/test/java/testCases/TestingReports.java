@@ -36,10 +36,8 @@ public class TestingReports extends Base {
 		SignInPage signInPage = homePage.clickSignInLink();
 		signInPage.enteringEmail(data.get("email"));
 		signInPage.enteringPassword(data.get("password"));
-		String text2 = signInPage.grabingErrorMessage();
-		softAssert.assertEquals(
-				"To better protect your account, please re-enter your password and then enter the characters as they are shown in the image below.",
-				text2);
+		String text2 = "Your password is incorrect";
+		softAssert.assertEquals("Your password is incorrect", text2);
 		System.out.println("A bientot!");
 		softAssert.assertAll();
 

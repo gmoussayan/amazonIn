@@ -18,7 +18,7 @@ public class SecondTV extends Waits {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(css = "h1[class='a-size-base-plus a-text-bold'")
+	@FindBy(css = "div[id='feature-bullets'] h1[class='a-size-base-plus a-text-bold']")
 	WebElement text;
 
 	public void waitForTextToBeVisible() {

@@ -18,7 +18,7 @@ public class HomePage extends Waits {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(css = "a[href*='television']")
+	@FindBy(xpath = "//div[@id=\"hmenu-content\"] //a[contains(text(), 'Televisions')]")
 	WebElement televisionMenuItem;
 
 	@FindBy(id = "nav-link-accountList")
@@ -27,7 +27,10 @@ public class HomePage extends Waits {
 	@FindBy(id = "nav-hamburger-menu")
 	WebElement hamburgerMenuIcon;
 
-	@FindBy(css = "a[data-menu-id='9']")
+	@FindBy(xpath = "//div[@id='hmenu-container' and @class='celwidget nav-sprite-v1 hmenu-visible']")
+	WebElement hmenuVisible;
+
+	@FindBy(css = "div[id='hmenu-content'] a[data-menu-id='9']")
 	WebElement hamburgerMenuTvItem;
 
 	public SignInPage clickSignInLink() {
@@ -41,17 +44,22 @@ public class HomePage extends Waits {
 		explicitWebElementClickable(hamburgerMenuIcon);
 		hamburgerMenuIcon.click();
 		System.out.println("Top left hamburger menu is clicked.");
+		Thread.sleep(3000);
 	}
 
-	public void clickHamburgerMenuTVItem() {
+	public void clickHamburgerMenuTVItem() throws InterruptedException {
 
+		explicitWebElementWait(hmenuVisible);
 		explicitWebElementClickable(hamburgerMenuTvItem);
 		hamburgerMenuTvItem.click();
 		System.out.println("TV, Appliances and Electronics under Shop by Department section is clicked.");
+		Thread.sleep(2000);
+
 	}
 
 	public TelevisionsPage clickTelevisionMenuItem() {
 
+		explicitWebElementWait(televisionMenuItem);
 		televisionMenuItem.click();
 		System.out.println("Televisions under Tv, Audio & Cameras sub section is clicked.");
 		return new TelevisionsPage(driver);

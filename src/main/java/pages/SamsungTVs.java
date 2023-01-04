@@ -1,7 +1,5 @@
 package pages;
 
-import java.util.List;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -27,10 +25,7 @@ public class SamsungTVs extends Waits {
 	@FindBy(id = "s-result-sort-select_2")
 	WebElement highToLowOption;
 
-	@FindBy(css = "a[class='a-link-normal s-no-outline']")
-	List<WebElement> tvResults;
-
-	@FindBy(xpath = "(//div[@class='a-section a-spacing-small puis-padding-left-small puis-padding-right-small'])[2]")
+	@FindBy(xpath = "//div[@cel_widget_id=\"MAIN-SEARCH_RESULTS-2\"] //div[@class='a-section a-spacing-small puis-padding-left-small puis-padding-right-small']")
 	WebElement tvResult;
 
 	public void dropdownIsVisible() {
