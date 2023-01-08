@@ -19,7 +19,7 @@ public class SamsungTVs extends Waits {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(id = "a-autoid-0-announce")
+	@FindBy(css = "span[id='a-autoid-0'] span[id='a-autoid-0-announce']")
 	WebElement dropdown;
 
 	@FindBy(id = "s-result-sort-select_2")

@@ -25,15 +25,15 @@ public class TelevisionsPage extends Waits {
 	@FindBy(xpath = "//div[@id='s-refinements'] //span[contains(text(), 'Samsung')]")
 	WebElement samsungOption;
 
-	@FindBy(css = "a[class='a-link-normal']")
+	@FindBy(css = "div[id='s-refinements'] a[class='a-link-normal']")
 	List<WebElement> navigationLabels;
 
 	public SamsungTVs loopNavLabelsForSamsung() throws InterruptedException {
 
+		explicitAllWebElementWait(navigationLabels);
+
 		Scroll scroll = new Scroll(driver);
 		scroll.scrollIntoView(samsungOption);
-
-		explicitAllWebElementWait(navigationLabels);
 
 		for (int i = 0; i < navigationLabels.size(); i++) {
 
