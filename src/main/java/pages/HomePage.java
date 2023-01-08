@@ -24,7 +24,7 @@ public class HomePage extends Waits {
 	@FindBy(id = "nav-link-accountList")
 	WebElement signInLink;
 
-	@FindBy(id = "nav-hamburger-menu")
+	@FindBy(css = "a[id ='nav-hamburger-menu'] i[class='hm-icon nav-sprite']")
 	WebElement hamburgerMenuIcon;
 
 	@FindBy(xpath = "//div[@id='hmenu-container' and @class='celwidget nav-sprite-v1 hmenu-visible']")
@@ -41,6 +41,7 @@ public class HomePage extends Waits {
 
 	public void clickHamburgerMenu() throws InterruptedException {
 
+		Thread.sleep(2000);
 		explicitWebElementClickable(hamburgerMenuIcon);
 		hamburgerMenuIcon.click();
 		System.out.println("Top left hamburger menu is clicked.");

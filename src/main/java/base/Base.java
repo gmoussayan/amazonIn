@@ -37,14 +37,12 @@ public class Base {
 
 	public WebDriver initializeDriver() throws IOException {
 
-		// FileInputStream obtains input bytes from a file in a file system
 		FileInputStream fileInput = new FileInputStream(
 				System.getProperty("user.dir") + "\\src\\main\\java\\utilities\\config.properties");
 
 		Properties props = new Properties();
 		props.load(fileInput);
 
-		// Java ternary operator
 		String browser = System.getProperty("browser") != null ? System.getProperty("browser")
 				: props.getProperty("browser");
 
@@ -88,10 +86,8 @@ public class Base {
 
 	public List<HashMap<String, String>> getJsonDataToMap(String filePath) throws IOException {
 
-		// Reads JSON file contents into String type.
 		String jsonContent = FileUtils.readFileToString(new File(filePath), StandardCharsets.UTF_8);
 
-		// It parses JSON with Jackson Databind and set it in a list of HashMap
 		ObjectMapper mapper = new ObjectMapper();
 		List<HashMap<String, String>> data = mapper.readValue(jsonContent,
 				new TypeReference<List<HashMap<String, String>>>() {

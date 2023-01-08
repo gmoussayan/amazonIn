@@ -13,7 +13,7 @@ This is a small automation Test Run using [amazon india](https://amazon.in). The
   - Click the second highest priced item (whatever that may be at the time of automating).
   - Switch the Window, and Assert that “About this item” wordings are present and log it to the console.
 
-+ **iFailTestCase**, which will try to sign in with an invalid username and password, and intentionally fail the test (via failed soft assertion) to generate the HTML report.
++ **iFailTestCase**, which will try to sign in with an invalid username and password, and intentionally failing the test (via failed soft assertion) to generate the HTML report.
 
 + **iSucceedTestCase**, which will run the same above steps without failing the test (via passed soft assertion).
 
