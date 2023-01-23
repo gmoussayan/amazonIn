@@ -22,7 +22,7 @@ Soft Assert instead of Hard Assert is used, and a generated HTML report under re
 ### Getting Started
 The following instructions will get you a copy of the repo to run it on your local machine.
 
-- Download and install [Java](https://www.oracle.com/java/technologies/downloads/).
+- Download and install [Java 11 or above](https://www.oracle.com/java/technologies/downloads/).
 - Download and install [Maven](https://maven.apache.org/download.cgi).
 - Set Java and Maven User variables.
 - Clone the Repo to your local machine.
