@@ -40,9 +40,10 @@ public class SamsungTVs extends Waits {
 
 	}
 
-	public void clickHighToLow() {
+	public void clickHighToLow() throws InterruptedException {
 
 		highToLowOption.click();
+		Thread.sleep(3000);
 		System.out.println("High to Low price sorting is applied.");
 
 	}
