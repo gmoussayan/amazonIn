@@ -10,10 +10,8 @@ import java.util.List;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -53,10 +51,12 @@ public class Base {
 
 			if (browser.contains("headless")) {
 
-				chromeOptions.addArguments("headless");
+				chromeOptions.addArguments("--headless=new");
 
 			}
 
+			chromeOptions.addArguments("--window-size=1920,1080");
+			chromeOptions.addArguments("--window-position=0,0");
 			chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 			driver = new ChromeDriver(chromeOptions);
 
@@ -73,14 +73,15 @@ public class Base {
 
 			}
 
+			firefoxOptions.addArguments("--window-size=1920,1080");
+			firefoxOptions.addArguments("--window-position=0,0");
 			firefoxOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 			driver = new FirefoxDriver(firefoxOptions);
+
 		}
 
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(12));
 		driver.manage().deleteAllCookies();
-		driver.manage().window().setSize(new Dimension(1440, 900));
-		driver.manage().window().setPosition(new Point(0, 0));
 		return driver;
 	}
 
