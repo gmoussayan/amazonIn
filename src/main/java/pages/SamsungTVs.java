@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,7 +26,7 @@ public class SamsungTVs extends Waits {
 	@FindBy(id = "s-result-sort-select_2")
 	WebElement highToLowOption;
 
-	@FindBy(xpath = "//div[@cel_widget_id=\"MAIN-SEARCH_RESULTS-2\"] //div[@class='a-section a-spacing-small puis-padding-left-small puis-padding-right-small']")
+	@FindBy(css = "img[data-image-index='2']")
 	WebElement tvResult;
 
 	public void dropdownIsVisible() {
