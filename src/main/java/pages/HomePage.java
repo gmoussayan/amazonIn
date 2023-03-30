@@ -18,7 +18,7 @@ public class HomePage extends Waits {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//div[@id=\"hmenu-content\"] //a[contains(text(), 'Televisions')]")
+	@FindBy(xpath = "//div[@id='hmenu-content'] //a[contains(text(), 'Televisions')]")
 	WebElement televisionMenuItem;
 
 	@FindBy(id = "nav-link-accountList")

@@ -23,7 +23,7 @@ public class TestingReports extends Base {
 		signInPage.enteringPassword(data.get("password"));
 		String text = "Your password is incorrect";
 		System.out.println(data.get("message"));
-		softAssert.assertEquals("Your password is IN correct", text);
+		softAssert.assertEquals(text, "Your password is IN correct");
 		softAssert.assertAll();
 
 	}
@@ -37,7 +37,7 @@ public class TestingReports extends Base {
 		signInPage.enteringEmail(data.get("email"));
 		signInPage.enteringPassword(data.get("password"));
 		String text2 = "Your password is incorrect";
-		softAssert.assertEquals("Your password is incorrect", text2);
+		softAssert.assertEquals(text2, "Your password is incorrect");
 		System.out.println("A bientot!");
 		softAssert.assertAll();
 
